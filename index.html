@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/clock.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RTC</h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <img src="assets/dark.svg" alt="Dark mode" id="theme-icon">
+            </button>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="clock">
+                <img src="assets/clock.svg" alt="Clock" class="tab-icon">
+                <span>Jam</span>
+            </button>
+            <button class="tab-button" data-tab="timer">
+                <img src="assets/timer.svg" alt="Timer" class="tab-icon">
+                <span>Timer</span>
+            </button>
+            <button class="tab-button" data-tab="stopwatch">
+                <img src="assets/stopwatch.svg" alt="Stopwatch" class="tab-icon">
+                <span>Stopwatch</span>
+            </button>
+        </nav>
+
+        <main>
+            <!-- Real Time Clock -->
+            <div id="clock" class="tab-content active">
+                <div class="clock-display">
+                    <div class="time" id="current-time">00:00:00</div>
+                    <div class="date" id="current-date">Hari, 01 Januari 2023</div>
+                </div>
+            </div>
+
+            <!-- Timer -->
+            <div id="timer" class="tab-content">
+                <div class="timer-display">
+                    <div class="time" id="timer-time">25:00</div>
+                    <div class="timer-controls">
+                        <button id="timer-start">Mulai</button>
+                        <button id="timer-pause">Jeda</button>
+                        <button id="timer-reset">Reset</button>
+                    </div>
+                    <div class="timer-set">
+                        <div class="input-group">
+                            <label for="timer-minutes">Menit:</label>
+                            <input type="number" id="timer-minutes" min="0" max="59" value="25">
+                        </div>
+                        <div class="input-group">
+                            <label for="timer-seconds">Detik:</label>
+                            <input type="number" id="timer-seconds" min="0" max="59" value="0">
+                        </div>
+                        <button id="timer-set">Atur</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stopwatch -->
+            <div id="stopwatch" class="tab-content">
+                <div class="stopwatch-display">
+                    <div class="time" id="stopwatch-time">00:00:00</div>
+                    <div class="stopwatch-controls">
+                        <button id="stopwatch-start">Mulai</button>
+                        <button id="stopwatch-pause">Jeda</button>
+                        <button id="stopwatch-reset">Reset</button>
+                    </div>
+                    <div class="laps" id="laps-container"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

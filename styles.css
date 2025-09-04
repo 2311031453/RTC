@@ -1,0 +1,248 @@
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #6b8cbb;
+    --background-color: #f5f5f5;
+    --surface-color: #ffffff;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --accent-color: #ff6b6b;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary-color: #6b8cbb;
+    --secondary-color: #4a6fa5;
+    --background-color: #1a1a1a;
+    --surface-color: #2d2d2d;
+    --text-color: #f5f5f5;
+    --text-secondary: #cccccc;
+    --accent-color: #ff8e8e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--surface-color);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.tabs {
+    display: flex;
+    background-color: var(--secondary-color);
+}
+
+.tab-button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0.7;
+}
+
+.tab-button.active {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button:hover {
+    opacity: 1;
+}
+
+.tab-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+    filter: invert(1);
+}
+
+.tab-content {
+    display: none;
+    padding: 30px;
+    text-align: center;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.time {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-color);
+}
+
+.date {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    margin: 5px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.timer-controls, .stopwatch-controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.timer-set {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+}
+
+.input-group input {
+    width: 70px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.laps {
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.lap-item {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: var(--text-secondary);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .time {
+        font-size: 2.5rem;
+    }
+    
+    .timer-controls, .stopwatch-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .timer-set {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* PWA specific styles */
+@media (display-mode: standalone) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        padding-top: 30px; /* Extra space for PWA */
+    }
+}
