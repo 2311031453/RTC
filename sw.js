@@ -1,4 +1,4 @@
-const CACHE_NAME = 'clock-app-v1';
+const CACHE_NAME = 'Axeoma-RTC-v1';
 const urlsToCache = [
   '/',
   '/index.html',
