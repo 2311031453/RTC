@@ -1,6 +1,6 @@
 {
-    "name": "Clock App",
-    "short_name": "ClockApp",
+    "name": "Axeoma RTC",
+    "short_name": "RTC",
     "description": "Aplikasi jam, timer, dan stopwatch dengan dark mode",
     "start_url": "/",
     "display": "standalone",
